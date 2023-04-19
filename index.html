@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Unit-Converter</title>
+</head>
+<body>
+    <div class="main_content">
+        <header>
+            <div class="icons">
+                <img src="/img/clock.svg" id="time_converter" class="svg_icons" alt="Times-Units">
+                <img src="/img/hot.svg" id="temperature_converter" class="svg_icons" alt="Temperature-Units">
+                <img src="/img/length.svg" id="length_converter" class="svg_icons" alt="Length-Units">
+                <img src="/img/volume.svg"  id="volume_converter"class="svg_icons" alt="Volume-Units">
+                <img src="/img/weight.svg" id="weight_converter" class="svg_icons" alt="Weight-Units">
+                <img src="/img/area.svg" id="area_converter" class="svg_icons" alt="Area-Units">
+            </div>       
+            <h1>Choose your converter</h1>
+        </header>
+        <section class="unit_choice_section">
+            <label>From:</label>
+            <input type="text" id="from_input" class="input" placeholder="Enter">
+            <select name="unit" id="first_selector_section" class="unit_selector"></select>
+            <label>To:</label>
+            <input type="text" id="result_input" class="input" placeholder="Result" readonly>
+            <select name="unit" id="second_selector_section" class="unit_selector"></select>
+            <button class="btn">Convert</button>
+        </section>
+        <footer>
+            <h2>Made by Hubert Zgoła</h2>
+            <p>All rights reserved &copy</p>
+        </footer>
+    </div>
+    <script src="/script/script.js"></script>
+</body>
+</html>
