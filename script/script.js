@@ -3,7 +3,7 @@ let unitSelectors = document.querySelector("#first_selector_section");
 let unitSelectorsResult = document.querySelector("#second_selector_section");
 const fromInput = document.querySelector("#from_input");
 const resultInput = document.querySelector("#result_input");
-const converterButton = document.querySelector(".btn");  // Converter button reference
+const converterButton = document.querySelector(".btn");
 
 /* Temperature Conversion Section */
 const temperatureConverter = document.getElementById("temperature_converter");
