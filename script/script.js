@@ -1,34 +1,43 @@
+// Get DOM references for the unit selectors and input fields
 let unitSelectors = document.querySelector("#first_selector_section");
 let unitSelectorsResult = document.querySelector("#second_selector_section");
 const fromInput = document.querySelector("#from_input");
 const resultInput = document.querySelector("#result_input");
-const converterButton = document.querySelector(".btn");
+const converterButton = document.querySelector(".btn");  // Converter button reference
 
-/* Temperature Section */
+/* Temperature Conversion Section */
 const temperatureConverter = document.getElementById("temperature_converter");
+
+// Event listener for the temperature converter section
 temperatureConverter.addEventListener("click", () => {
   
+  // Change the heading when temperature conversion is selected
   const temperatureConverterChange = document.querySelector("h1");
-  fromInput.value = " ";
-  resultInput.value = " ";
-  temperatureConverterChange.innerHTML = "Temperature Converter";
+  fromInput.value = " ";  // Reset input field
+  resultInput.value = " ";  // Reset result field
+  temperatureConverterChange.innerHTML = "Temperature Converter";  // Update header
   
+  // Populate unitSelectors with temperature options
   unitSelectors.innerHTML = `
   <option value="Celsius" class="temperatureUnit">Celsius</option>
   <option value="Kelvin" class="temperatureUnit">Kelvin</option>
   <option value="Fahrenhait" class="temperatureUnit">Fahrenhait</option>
   `;
+  
+  // Populate unitSelectorsResult with temperature options
   unitSelectorsResult.innerHTML = `
   <option value="Celsius" class="temperatureUnitResult">Celsius</option>
   <option value="Kelvin" class="temperatureUnitResult">Kelvin</option>
   <option value="Fahrenhait" class="temperatureUnitResult">Fahrenhait</option>
   `;
   
+  // Function to perform the temperature conversion based on selected units
   function updateConversion() {
     const inputValue = parseFloat(fromInput.value);
     const inputUnit = document.querySelector("#first_selector_section").value;
     const resultUnit = document.querySelector("#second_selector_section").value;
     
+    // Check units and apply appropriate conversion formula
     if (inputUnit === resultUnit) { 
       resultInput.value = inputValue;
     } else if (inputUnit === "Celsius" && resultUnit === "Kelvin") {
@@ -46,21 +55,27 @@ temperatureConverter.addEventListener("click", () => {
     }
   }
   
+  // Attach the conversion function to the converter button's click event
   converterButton.addEventListener("click", () => {
     updateConversion();
   });
   
-  
 });
 
-/* Time Section */
+/* Time Conversion Section */
 const timeConverter = document.getElementById("time_converter");
+
+// Event listener for the time converter section
 timeConverter.addEventListener("click", ()=>{
+  // Reset the input and result fields
   fromInput.value = " ";
   resultInput.value = " ";
+
+  // Change the heading when time conversion is selected
   const timeConverterChange = document.querySelector("h1");
   timeConverterChange.innerHTML = "Time Converter";
   
+  // Populate unitSelectors with time options
   unitSelectors.innerHTML = `
   <option value="Second" class="timeUnit">Second</option>
   <option value="Milisecond" class="timeUnit">Milisecond</option>
@@ -88,11 +103,13 @@ timeConverter.addEventListener("click", ()=>{
   <option value="Year" class="timeUnitResult">Year</option>
   `;
   
+  // Function to perform the time conversion based on selected units
   function updateConversion() {
     const inputValue = parseFloat(fromInput.value);
     const inputUnit = document.querySelector("#first_selector_section").value;
     const resultUnit = document.querySelector("#second_selector_section").value;
     
+    // Conversion logic
     if (inputUnit === resultUnit) {
       resultInput.value = inputValue;
     } else if (inputUnit === "Second" && resultUnit === "Milisecond") {
@@ -290,21 +307,28 @@ timeConverter.addEventListener("click", ()=>{
       }
     }
     
-    
+    //Attach the conversion function to the converter button's click event
     converterButton.addEventListener("click", () => {
       updateConversion()
     });
     
   });
     
-/* Length Section */
+/* Length Conversion Section */
 const lengthConverter = document.getElementById("length_converter");
+
+// Event listener for the length converter section
 lengthConverter.addEventListener("click", ()=>{
+
+  // Change the heading when length conversion is selected
   const lengthConverterChange = document.querySelector("h1");
   lengthConverterChange.innerHTML = "Lenght Converter";
+  
+  // Reset input fields
   fromInput.value = " ";
   resultInput.value = " ";
     
+  // Populate unitSelectors with length options
   unitSelectors.innerHTML = `
     <option value="Meter" class="lengthUnit">Meter</option>
     <option value="Kilometer" class="lengthUnit">Kilometer</option>
@@ -316,6 +340,8 @@ lengthConverter.addEventListener("click", ()=>{
     <option value="Foot" class="lengthUnit">Foot</option>
     <option value="Inch" class="lengthUnit">Inch</option>
     `;
+
+  // Populate unitSelectorsResult with length options
   unitSelectorsResult.innerHTML = `
     <option value="Meter" class="lengthUnitResult">Meter</option>
     <option value="Kilometer" class="lengthUnitResult">Kilometer</option>
@@ -327,12 +353,14 @@ lengthConverter.addEventListener("click", ()=>{
     <option value="Foot" class="lengthUnitResult">Foot</option>
     <option value="Inch" class="lengthUnitResult">Inch</option>
     `;
-    
+
+  // Function to perform length conversion based on selected units
   function updateConversion() {
     const inputValue = parseFloat(fromInput.value);
     const inputUnit = document.querySelector("#first_selector_section").value;
     const resultUnit = document.querySelector("#second_selector_section").value;
-    
+
+    // Conversion logic
       if (inputUnit === resultUnit) {
         resultInput.value = inputValue;
       } else if (inputUnit === "Meter" && resultUnit === "Kilometer") {
@@ -450,6 +478,7 @@ lengthConverter.addEventListener("click", ()=>{
       }
     }
     
+    // Attach the conversion function to the converter button's click event
     converterButton.addEventListener("click", () => {
       updateConversion()
     });
@@ -457,15 +486,21 @@ lengthConverter.addEventListener("click", ()=>{
     
   });
 
-/* Volume Section */
+/* Volume Conversion Section */
 const volumeConverter = document.getElementById("volume_converter");
+
+  // Event listener for the volume converter section
   volumeConverter.addEventListener("click", ()=>{
+
+  // Change the heading when volume conversion is selected
   let volumeConverterChange = document.querySelector("h1");
   volumeConverterChange.innerHTML = "Volume Converter";
   
+  // Reset input fields
   fromInput.value = " ";
   resultInput.value = " ";
-    
+  
+  // Populate unitSelectors with volume options
   unitSelectors.innerHTML = `
     <option value="Cubic Meter" class="volumeUnit">Cubic Meter</option>
     <option value="Cubic Kilometer" class="volumeUnit">Cubic Kilometer</option>
@@ -476,6 +511,8 @@ const volumeConverter = document.getElementById("volume_converter");
     <option value="US Pint" class="volumeUnit">US Pint</option>
     <option value="US Cup" class="volumeUnit">US Cup</option>
     `;
+  
+  // Populate unitSelectorsResult with volume options 
   unitSelectorsResult.innerHTML = `
     <option value="Cubic Meter" class="volumeUnit">Cubic Meter</option>
     <option value="Cubic Kilometer" class="volumeUnit">Cubic Kilometer</option>
@@ -486,12 +523,14 @@ const volumeConverter = document.getElementById("volume_converter");
     <option value="US Pint" class="volumeUnit">US Pint</option>
     <option value="US Cup" class="volumeUnit">US Cup</option>
     `;
-  
+    
+    // Function to perform volume conversion based on selected units
     function updateConversion() {
       const inputValue = parseFloat(fromInput.value);
       const inputUnit = document.querySelector("#first_selector_section").value;
       const resultUnit = document.querySelector("#second_selector_section").value;
-  
+      
+      // Conversion logic
       if (inputUnit === resultUnit) {
         resultInput.value = inputValue;
       } else if (inputUnit === "Cubic Meter" && resultUnit === "Cubic Kilometer") {
@@ -536,46 +575,46 @@ const volumeConverter = document.getElementById("volume_converter");
         resultInput.value = inputValue / 764554.85798;
       } else if (inputUnit === "Cubic Centimeter" && resultUnit === "US Gallon") {
         resultInput.value = inputValue / 3785.41178;
-        } else if (inputUnit === "Cubic Centimeter" && resultUnit === "US Quart") {
-        resultInput.value = inputValue / 946.352945;
-        } else if (inputUnit === "Cubic Centimeter" && resultUnit === "US Pint") {
-        resultInput.value = inputValue / 473.176473;
-        } else if (inputUnit === "Cubic Centimeter" && resultUnit === "US Cup") {
-        resultInput.value = inputValue / 236.588237;
-        } else if (inputUnit === "Cubic Mile" && resultUnit === "Cubic Meter") {
-        resultInput.value = inputValue * 4168181825.4;
-        } else if (inputUnit === "Cubic Mile" && resultUnit === "Cubic Kilometer") {
-        resultInput.value = inputValue * 4.1681818254;
-        } else if (inputUnit === "Cubic Mile" && resultUnit === "Cubic Centimeter") {
-        resultInput.value = inputValue * 2.39912816e+16;
-        } else if (inputUnit === "Cubic Mile" && resultUnit === "Cubic Yard") {
-        resultInput.value = inputValue * 5451776000;
-        } else if (inputUnit === "Cubic Mile" && resultUnit === "US Gallon") {
-        resultInput.value = inputValue * 1.10151741285e+13;
-        } else if (inputUnit === "Cubic Mile" && resultUnit === "US Quart") {
-        resultInput.value = inputValue * 4.4060696514e+13;
-        } else if (inputUnit === "Cubic Mile" && resultUnit === "US Pint") {
-        resultInput.value = inputValue * 8.8121393029e+13;
-        } else if (inputUnit === "Cubic Mile" && resultUnit === "US Cup") {
-        resultInput.value = inputValue * 1.7624278606e+14;
-        } else if (inputUnit === "Cubic Yard" && resultUnit === "Cubic Meter") {
-        resultInput.value = inputValue / 1.30795;
-        } else if (inputUnit === "Cubic Yard" && resultUnit === "Cubic Kilometer") {
-        resultInput.value = inputValue / 1.30795e+9;
-        } else if (inputUnit === "Cubic Yard" && resultUnit === "Cubic Centimeter") {
-        resultInput.value = inputValue * 764554.85798;
-        } else if (inputUnit === "Cubic Yard" && resultUnit === "Cubic Mile") {
-        resultInput.value = inputValue / 5451776000;
-        } else if (inputUnit === "Cubic Yard" && resultUnit === "US Gallon") {
-        resultInput.value = inputValue * 201.97402597;
-        } else if (inputUnit === "Cubic Yard" && resultUnit === "US Quart") {
-        resultInput.value = inputValue * 807.89610386;
-        } else if (inputUnit === "Cubic Yard" && resultUnit === "US Pint") {
-        resultInput.value = inputValue * 1615.7922077;
-        } else if (inputUnit === "Cubic Yard" && resultUnit === "US Cup") {
-        resultInput.value = inputValue * 3231.5844154;
-        } else if (inputUnit === "US Gallon" && resultUnit === "Cubic Meter") {
-        resultInput.value = inputValue /0.2641720523581484;
+      } else if (inputUnit === "Cubic Centimeter" && resultUnit === "US Quart") {
+      resultInput.value = inputValue / 946.352945;
+      } else if (inputUnit === "Cubic Centimeter" && resultUnit === "US Pint") {
+      resultInput.value = inputValue / 473.176473;
+      } else if (inputUnit === "Cubic Centimeter" && resultUnit === "US Cup") {
+      resultInput.value = inputValue / 236.588237;
+      } else if (inputUnit === "Cubic Mile" && resultUnit === "Cubic Meter") {
+      resultInput.value = inputValue * 4168181825.4;
+      } else if (inputUnit === "Cubic Mile" && resultUnit === "Cubic Kilometer") {
+      resultInput.value = inputValue * 4.1681818254;
+      } else if (inputUnit === "Cubic Mile" && resultUnit === "Cubic Centimeter") {
+      resultInput.value = inputValue * 2.39912816e+16;
+      } else if (inputUnit === "Cubic Mile" && resultUnit === "Cubic Yard") {
+      resultInput.value = inputValue * 5451776000;
+      } else if (inputUnit === "Cubic Mile" && resultUnit === "US Gallon") {
+      resultInput.value = inputValue * 1.10151741285e+13;
+      } else if (inputUnit === "Cubic Mile" && resultUnit === "US Quart") {
+      resultInput.value = inputValue * 4.4060696514e+13;
+      } else if (inputUnit === "Cubic Mile" && resultUnit === "US Pint") {
+      resultInput.value = inputValue * 8.8121393029e+13;
+      } else if (inputUnit === "Cubic Mile" && resultUnit === "US Cup") {
+      resultInput.value = inputValue * 1.7624278606e+14;
+      } else if (inputUnit === "Cubic Yard" && resultUnit === "Cubic Meter") {
+      resultInput.value = inputValue / 1.30795;
+      } else if (inputUnit === "Cubic Yard" && resultUnit === "Cubic Kilometer") {
+      resultInput.value = inputValue / 1.30795e+9;
+      } else if (inputUnit === "Cubic Yard" && resultUnit === "Cubic Centimeter") {
+      resultInput.value = inputValue * 764554.85798;
+      } else if (inputUnit === "Cubic Yard" && resultUnit === "Cubic Mile") {
+      resultInput.value = inputValue / 5451776000;
+      } else if (inputUnit === "Cubic Yard" && resultUnit === "US Gallon") {
+      resultInput.value = inputValue * 201.97402597;
+      } else if (inputUnit === "Cubic Yard" && resultUnit === "US Quart") {
+      resultInput.value = inputValue * 807.89610386;
+      } else if (inputUnit === "Cubic Yard" && resultUnit === "US Pint") {
+      resultInput.value = inputValue * 1615.7922077;
+      } else if (inputUnit === "Cubic Yard" && resultUnit === "US Cup") {
+      resultInput.value = inputValue * 3231.5844154;
+      } else if (inputUnit === "US Gallon" && resultUnit === "Cubic Meter") {
+      resultInput.value = inputValue /0.2641720523581484;
       } else if (inputUnit === "US Gallon" && resultUnit === "Cubic Kilometer") {
       resultInput.value = inputValue / 264172052.3581484;
       } else if (inputUnit === "US Gallon" && resultUnit === "Cubic Centimeter") {
@@ -618,29 +657,30 @@ const volumeConverter = document.getElementById("volume_converter");
       resultInput.value = inputValue / 25.745082;
       } else if (inputUnit === "US Pint" && resultUnit === "US Gallon") {
       resultInput.value = inputValue / 8;
-    } else if (inputUnit === "US Pint" && resultUnit === "US Quart") {
-    resultInput.value = inputValue / 2;
-    } else if (inputUnit === "US Pint" && resultUnit === "US Cup") {
-    resultInput.value = inputValue * 2;
-    } else if (inputUnit === "US Cup" && resultUnit === "Cubic Meter") {
-    resultInput.value = inputValue / 4226.7528377;
-    } else if (inputUnit === "US Cup" && resultUnit === "Cubic Kilometer") {
-    resultInput.value = inputValue / 4.2267528377e+15;
-    } else if (inputUnit === "US Cup" && resultUnit === "Cubic Centimeter") {
-    resultInput.value = inputValue * 236.5882365;
-    } else if (inputUnit === "US Cup" && resultUnit === "Cubic Mile") {
-    resultInput.value = inputValue / 1.1011031984e+19;
-    } else if (inputUnit === "US Cup" && resultUnit === "Cubic Yard") {
-    resultInput.value = inputValue / 344.53101778;
-    } else if (inputUnit === "US Cup" && resultUnit === "US Gallon") {
-    resultInput.value = inputValue / 16;
-    } else if (inputUnit === "US Cup" && resultUnit === "US Quart") {
-    resultInput.value = inputValue / 4;
-    } else if (inputUnit === "US Cup" && resultUnit === "US Pint") {
-    resultInput.value = inputValue / 2;
-  }
+      } else if (inputUnit === "US Pint" && resultUnit === "US Quart") {
+      resultInput.value = inputValue / 2;
+      } else if (inputUnit === "US Pint" && resultUnit === "US Cup") {
+      resultInput.value = inputValue * 2;
+      } else if (inputUnit === "US Cup" && resultUnit === "Cubic Meter") {
+      resultInput.value = inputValue / 4226.7528377;
+      } else if (inputUnit === "US Cup" && resultUnit === "Cubic Kilometer") {
+      resultInput.value = inputValue / 4.2267528377e+15;
+      } else if (inputUnit === "US Cup" && resultUnit === "Cubic Centimeter") {
+      resultInput.value = inputValue * 236.5882365;
+      } else if (inputUnit === "US Cup" && resultUnit === "Cubic Mile") {
+      resultInput.value = inputValue / 1.1011031984e+19;
+      } else if (inputUnit === "US Cup" && resultUnit === "Cubic Yard") {
+      resultInput.value = inputValue / 344.53101778;
+      } else if (inputUnit === "US Cup" && resultUnit === "US Gallon") {
+      resultInput.value = inputValue / 16;
+      } else if (inputUnit === "US Cup" && resultUnit === "US Quart") {
+      resultInput.value = inputValue / 4;
+      } else if (inputUnit === "US Cup" && resultUnit === "US Pint") {
+      resultInput.value = inputValue / 2;
+    }
 }
 
+// Attach the conversion function to the converter button's click event
 converterButton.addEventListener("click", () => {
   updateConversion()
 });
@@ -648,42 +688,53 @@ converterButton.addEventListener("click", () => {
 
 });
 
-/* Weight Section */
+/* Weight Conversion Section */
 const weightConverter = document.getElementById("weight_converter");
+
+// Event listener for the weight converter section
 weightConverter.addEventListener("click", ()=>{
+
+  // Change the heading when weight conversion is selected
   let weightConverterChange = document.querySelector("h1");
   weightConverterChange.innerHTML = "Weight Converter";
+
+  // Reset input fields
   fromInput.value = " ";
   resultInput.value = " ";
-    
+  
+  // Populate unitSelectors with weight options
   unitSelectors.innerHTML = `
-    <option value="Kilogram" class="lengthUnit">Kilogram</option>
-    <option value="Gram" class="lengthUnit">Gram</option>
-    <option value="Miligram" class="lengthUnit">Miligram</option>
-    <option value="Metric Ton" class="lengthUnit">Metric Ton</option>
-    <option value="Long Ton" class="lengthUnit">Long Ton</option>
-    <option value="Short Ton" class="lengthUnit">Short Ton</option>
-    <option value="Pound" class="lengthUnit">Pound</option>
-    <option value="Ounce" class="lengthUnit">Ounce</option>
-    <option value="Carat" class="lengthUnit">Carat</option>
+    <option value="Kilogram" class="weightUnit">Kilogram</option>
+    <option value="Gram" class="weightUnit">Gram</option>
+    <option value="Miligram" class="weightUnit">Miligram</option>
+    <option value="Metric Ton" class="weightUnit">Metric Ton</option>
+    <option value="Long Ton" class="weightUnit">Long Ton</option>
+    <option value="Short Ton" class="weightUnit">Short Ton</option>
+    <option value="Pound" class="weightUnit">Pound</option>
+    <option value="Ounce" class="weightUnit">Ounce</option>
+    <option value="Carat" class="weightUnit">Carat</option>
     `;
+
+  // Populate unitSelectorsResult with weight options
   unitSelectorsResult.innerHTML = `
-  <option value="Kilogram" class="lengthUnitResult">Kilogram</option>
-  <option value="Gram" class="lengthUnitResult">Gram</option>
-  <option value="Miligram" class="lengthUnitResult">Miligram</option>
-  <option value="Metric Ton" class="lengthUnitResult">Metric Ton</option>
-  <option value="Long Ton" class="lengthUnitResult">Long Ton</option>
-  <option value="Short Ton" class="lengthUnitResult">Short Ton</option>
-  <option value="Pound" class="lengthUnitResult">Pound</option>
-  <option value="Ounce" class="lengthUnitResult">Ounce</option>
-  <option value="Carat" class="lengthUnitResult">Carat</option>
+  <option value="Kilogram" class="weightUnitResult">Kilogram</option>
+  <option value="Gram" class="weightUnitResult">Gram</option>
+  <option value="Miligram" class="weightUnitResult">Miligram</option>
+  <option value="Metric Ton" class="weightUnitResult">Metric Ton</option>
+  <option value="Long Ton" class="weightUnitResult">Long Ton</option>
+  <option value="Short Ton" class="weightUnitResult">Short Ton</option>
+  <option value="Pound" class="weightUnitResult">Pound</option>
+  <option value="Ounce" class="weightUnitResult">Ounce</option>
+  <option value="Carat" class="weightUnitResult">Carat</option>
   `;
-    
+  
+  // Function to perform weight conversion based on selected units
   function updateConversion() {
     const inputValue = parseFloat(fromInput.value);
     const inputUnit = document.querySelector("#first_selector_section").value;
     const resultUnit = document.querySelector("#second_selector_section").value;
 
+    // Conversion logic
     if (inputUnit === resultUnit) {
       resultInput.value = inputValue;
     } else if (inputUnit === "Kilogram" && resultUnit === "Gram") {
@@ -734,54 +785,54 @@ weightConverter.addEventListener("click", ()=>{
       resultInput.value = inputValue / 28350;
     } else if (inputUnit === "Miligram" && resultUnit === "Carrat") {
       resultInput.value = inputValue / 200;
-      } else if (inputUnit === "Kilometer" && resultUnit === "Meter") {
-      resultInput.value = inputValue * 1000;
-      } else if (inputUnit === "Kilometer" && resultUnit === "Centimeter") {
-      resultInput.value = inputValue * 100000;
-      } else if (inputUnit === "Kilometer" && resultUnit === "Milimeter") {
-      resultInput.value = inputValue * 1000000;
-      } else if (inputUnit === "Kilometer" && resultUnit === "Mile") {
-      resultInput.value = inputValue / 1.609;
-      } else if (inputUnit === "Kilometer" && resultUnit === "Yard") {
-      resultInput.value = inputValue * 1094;
-      } else if (inputUnit === "Kilometer" && resultUnit === "Foot") {
-      resultInput.value = inputValue * 3281;
-      } else if (inputUnit === "Kilometer" && resultUnit === "Inch") {
-      resultInput.value = inputValue * 39370;
-      } else if (inputUnit === "Meter" && resultUnit === "Kilometer") {
-      resultInput.value = inputValue / 1000;
-      } else if (inputUnit === "Meter" && resultUnit === "Centimeter") {
-      resultInput.value = inputValue * 100;
-      } else if (inputUnit === "Meter" && resultUnit === "Milimeter") {
-      resultInput.value = inputValue * 1000;
-      } else if (inputUnit === "Meter" && resultUnit === "Mile") {
-      resultInput.value = inputValue / 1609;
-      } else if (inputUnit === "Meter" && resultUnit === "Yard") {
-      resultInput.value = inputValue * 1.094;
-      } else if (inputUnit === "Meter" && resultUnit === "Foot") {
-      resultInput.value = inputValue * 3.281;
-      } else if (inputUnit === "Meter" && resultUnit === "Inch") {
-      resultInput.value = inputValue * 39.37;
-      } else if (inputUnit === "Centimeter" && resultUnit === "Kilometer") {
-      resultInput.value = inputValue / 100000;
-      } else if (inputUnit === "Centimeter" && resultUnit === "Meter") {
-      resultInput.value = inputValue / 100;
-      } else if (inputUnit === "Centimeter" && resultUnit === "Milimeter") {
-      resultInput.value = inputValue * 10;
-      } else if (inputUnit === "Centimeter" && resultUnit === "Mile") {
-      resultInput.value = inputValue / 160934;
-      } else if (inputUnit === "Centimeter" && resultUnit === "Yard") {
-      resultInput.value = inputValue / 91.44;
-      } else if (inputUnit === "Centimeter" && resultUnit === "Foot") {
-      resultInput.value = inputValue / 30.48;
-      } else if (inputUnit === "Centimeter" && resultUnit === "Inch") {
-      resultInput.value = inputValue / 2.54;
-      } else if (inputUnit === "Milimeter" && resultUnit === "Kilometer") {
-      resultInput.value = inputValue / 1000000;
-      } else if (inputUnit === "Milimeter" && resultUnit === "Meter") {
-      resultInput.value = inputValue / 1000;
-      } else if (inputUnit === "Milimeter" && resultUnit === "Centimeter") {
-      resultInput.value = inputValue /10;
+    } else if (inputUnit === "Kilometer" && resultUnit === "Meter") {
+    resultInput.value = inputValue * 1000;
+    } else if (inputUnit === "Kilometer" && resultUnit === "Centimeter") {
+    resultInput.value = inputValue * 100000;
+    } else if (inputUnit === "Kilometer" && resultUnit === "Milimeter") {
+    resultInput.value = inputValue * 1000000;
+    } else if (inputUnit === "Kilometer" && resultUnit === "Mile") {
+    resultInput.value = inputValue / 1.609;
+    } else if (inputUnit === "Kilometer" && resultUnit === "Yard") {
+    resultInput.value = inputValue * 1094;
+    } else if (inputUnit === "Kilometer" && resultUnit === "Foot") {
+    resultInput.value = inputValue * 3281;
+    } else if (inputUnit === "Kilometer" && resultUnit === "Inch") {
+    resultInput.value = inputValue * 39370;
+    } else if (inputUnit === "Meter" && resultUnit === "Kilometer") {
+    resultInput.value = inputValue / 1000;
+    } else if (inputUnit === "Meter" && resultUnit === "Centimeter") {
+    resultInput.value = inputValue * 100;
+    } else if (inputUnit === "Meter" && resultUnit === "Milimeter") {
+    resultInput.value = inputValue * 1000;
+    } else if (inputUnit === "Meter" && resultUnit === "Mile") {
+    resultInput.value = inputValue / 1609;
+    } else if (inputUnit === "Meter" && resultUnit === "Yard") {
+    resultInput.value = inputValue * 1.094;
+    } else if (inputUnit === "Meter" && resultUnit === "Foot") {
+    resultInput.value = inputValue * 3.281;
+    } else if (inputUnit === "Meter" && resultUnit === "Inch") {
+    resultInput.value = inputValue * 39.37;
+    } else if (inputUnit === "Centimeter" && resultUnit === "Kilometer") {
+    resultInput.value = inputValue / 100000;
+    } else if (inputUnit === "Centimeter" && resultUnit === "Meter") {
+    resultInput.value = inputValue / 100;
+    } else if (inputUnit === "Centimeter" && resultUnit === "Milimeter") {
+    resultInput.value = inputValue * 10;
+    } else if (inputUnit === "Centimeter" && resultUnit === "Mile") {
+    resultInput.value = inputValue / 160934;
+    } else if (inputUnit === "Centimeter" && resultUnit === "Yard") {
+    resultInput.value = inputValue / 91.44;
+    } else if (inputUnit === "Centimeter" && resultUnit === "Foot") {
+    resultInput.value = inputValue / 30.48;
+    } else if (inputUnit === "Centimeter" && resultUnit === "Inch") {
+    resultInput.value = inputValue / 2.54;
+    } else if (inputUnit === "Milimeter" && resultUnit === "Kilometer") {
+    resultInput.value = inputValue / 1000000;
+    } else if (inputUnit === "Milimeter" && resultUnit === "Meter") {
+    resultInput.value = inputValue / 1000;
+    } else if (inputUnit === "Milimeter" && resultUnit === "Centimeter") {
+    resultInput.value = inputValue /10;
     } else if (inputUnit === "Milimeter" && resultUnit === "Kilometer") {
     resultInput.value = inputValue / 1000000;
     } else if (inputUnit === "Mile" && resultUnit === "Kilometer") {
@@ -813,6 +864,7 @@ weightConverter.addEventListener("click", ()=>{
   }
 }
 
+// Attach the conversion function to the converter button's click event
 converterButton.addEventListener("click", () => {
   updateConversion()
 });
@@ -820,14 +872,21 @@ converterButton.addEventListener("click", () => {
 
 });
 
-/* Area Section */
+/* Area Conversion Section */
 const areaConverter = document.getElementById("area_converter");
+
+// Event listener for the area converter section
 areaConverter.addEventListener("click", ()=>{
+
+  // Change the heading when area conversion is selected
   const areaConverterChange = document.querySelector("h1");
   areaConverterChange.innerHTML = "Area Converter";
+
+  // Reset input fields
   fromInput.value = " ";
   resultInput.value = " ";
-    
+
+  // Populate unitSelectors with area options
   unitSelectors.innerHTML = `
     <option value="Square Meter" class="areaUnit">Square Meter</option>
     <option value="Square Kilometer" class="areaUnit">Square Kilometer</option>
@@ -841,6 +900,8 @@ areaConverter.addEventListener("click", ()=>{
     <option value="Square Inch" class="areaUnit">Square Inch</option>
     <option value="Acre" class="areaUnit">Acre</option>
     `;
+
+  // Populate unitSelectorsResult with area options
   unitSelectorsResult.innerHTML = `
   <option value="Square Meter" class="areaUnitResult">Square Meter</option>
   <option value="Square Kilometer" class="areaUnitResult">Square Kilometer</option>
@@ -854,12 +915,14 @@ areaConverter.addEventListener("click", ()=>{
   <option value="Square Inch" class="areaUnitResult">Square Inch</option>
   <option value="Acre" class="areaUnitResult">Acre</option>
   `;
-    
+  
+  // Function to perform area conversion based on selected units
   function updateConversion() {
     const inputValue = parseFloat(fromInput.value);
     const inputUnit = document.querySelector("#first_selector_section").value;
     const resultUnit = document.querySelector("#second_selector_section").value;
-
+    
+    // Conversion logic
     if (inputUnit === resultUnit) {
       resultInput.value = inputValue;
   } else if (inputUnit === "Square Meter" && resultUnit === "Square Kilometer") {
@@ -882,7 +945,6 @@ areaConverter.addEventListener("click", ()=>{
       resultInput.value = inputValue * 1550;
   } else if (inputUnit === "Square Meter" && resultUnit === "Acre") {
       resultInput.value = inputValue / 4047;
-  
   } else if (inputUnit === "Square Kilometer" && resultUnit === "Square Meter") {
       resultInput.value = inputValue * 1000000;
   } else if (inputUnit === "Square Kilometer" && resultUnit === "Square Centimeter") {
@@ -909,38 +971,39 @@ areaConverter.addEventListener("click", ()=>{
       resultInput.value = inputValue * 100;
   } else if (inputUnit === "Square Micrometer" && resultUnit === "Square Millimeter") {
     resultInput.value = inputValue / 1000000;
-    } else if (inputUnit === "Hectare" && resultUnit === "Square Meter") {
+  } else if (inputUnit === "Hectare" && resultUnit === "Square Meter") {
     resultInput.value = inputValue * 10000;
-    } else if (inputUnit === "Hectare" && resultUnit === "Square Kilometer") {
+  } else if (inputUnit === "Hectare" && resultUnit === "Square Kilometer") {
     resultInput.value = inputValue / 100;
-    } else if (inputUnit === "Hectare" && resultUnit === "Acre") {
+  } else if (inputUnit === "Hectare" && resultUnit === "Acre") {
     resultInput.value = inputValue * 2.47105;
-    } else if (inputUnit === "Square Mile" && resultUnit === "Square Meter") {
+  } else if (inputUnit === "Square Mile" && resultUnit === "Square Meter") {
     resultInput.value = inputValue * 2589988.11;
-    } else if (inputUnit === "Square Mile" && resultUnit === "Square Kilometer") {
+  } else if (inputUnit === "Square Mile" && resultUnit === "Square Kilometer") {
     resultInput.value = inputValue * 2.58999;
-    } else if (inputUnit === "Square Mile" && resultUnit === "Acre") {
+  } else if (inputUnit === "Square Mile" && resultUnit === "Acre") {
     resultInput.value = inputValue * 640;
-    } else if (inputUnit === "Square Yard" && resultUnit === "Square Foot") {
+  } else if (inputUnit === "Square Yard" && resultUnit === "Square Foot") {
     resultInput.value = inputValue * 9;
-    } else if (inputUnit === "Square Yard" && resultUnit === "Square Inch") {
+  } else if (inputUnit === "Square Yard" && resultUnit === "Square Inch") {
     resultInput.value = inputValue * 1296;
-    } else if (inputUnit === "Square Yard" && resultUnit === "Square Meter") {
+  } else if (inputUnit === "Square Yard" && resultUnit === "Square Meter") {
     resultInput.value = inputValue / 1.19599;
-    } else if (inputUnit === "Square Foot" && resultUnit === "Square Inch") {
+  } else if (inputUnit === "Square Foot" && resultUnit === "Square Inch") {
     resultInput.value = inputValue * 144;
-    } else if (inputUnit === "Square Foot" && resultUnit === "Square Meter") {
+  } else if (inputUnit === "Square Foot" && resultUnit === "Square Meter") {
     resultInput.value = inputValue / 10.7639;
-    } else if (inputUnit === "Acre" && resultUnit === "Square Meter") {
+  } else if (inputUnit === "Acre" && resultUnit === "Square Meter") {
     resultInput.value = inputValue * 4046.86;
-    } else if (inputUnit === "Acre" && resultUnit === "Square Foot") {
+  } else if (inputUnit === "Acre" && resultUnit === "Square Foot") {
     resultInput.value = inputValue * 43560;
-    } else if (inputUnit === "Acre" && resultUnit === "Hectare") {
+  } else if (inputUnit === "Acre" && resultUnit === "Hectare") {
     resultInput.value = inputValue / 2.47105;
 
   }
 }
 
+// Attach the conversion function to the converter button's click event
 converterButton.addEventListener("click", () => {
   updateConversion()
 });
