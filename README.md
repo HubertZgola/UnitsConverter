@@ -28,16 +28,6 @@ Select the appropriate category to convert units in your area.
 ![image](https://github.com/HubertZgola/UnitsConverter/assets/99662754/175d0192-e009-4295-816e-d46ae3b065e7)
 
 
-# System requirements
-
-To run the "UnitsConverter" application using Live Server, you need:
-
-
-
-Visual Studio Code environment with the Live Server plug-in installed.
-
-A web browser with JavaScript enabled.
-
 ![image](https://github.com/HubertZgola/UnitsConverter/assets/99662754/7cdeab9e-6775-4856-b3c2-9a44204af5fb)
 
 # Author
