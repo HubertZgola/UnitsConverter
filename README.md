@@ -3,7 +3,7 @@
 
 # Description
 
-Converter is an application created in the Visual Studio Code environment using the Live Server plug-in. The app allows you to convert units in different categories. User interaction is done by selecting units using lists, and the conversion result is generated dynamically using JavaScript.
+Converter is an application created in the Visual Studio Code environment using the HTML, CSS and Vanilla JS. The app allows you to convert units in different categories. User interaction is done by selecting units using lists, and the conversion result is generated dynamically using JavaScript.
 
 
 # Unit categories
